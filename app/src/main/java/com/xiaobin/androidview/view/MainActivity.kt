@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                 when(position){
                    0 -> startActivity(Intent(this@MainActivity, RecyclerViewActivity::class.java))
                    1 -> startActivity(Intent(this@MainActivity, ViewActivity::class.java))
+                   1 -> startActivity(Intent(this@MainActivity, AnimatorActivity::class.java))
                 }
             }
 
@@ -51,5 +52,6 @@ class MainActivity : AppCompatActivity() {
     private fun initData() {
         data.add("RecyclerView")
         data.add("View Event")
+        data.add("Animator")
     }
 }

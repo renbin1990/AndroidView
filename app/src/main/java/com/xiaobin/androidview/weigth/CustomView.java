@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Scroller;
 
 import androidx.annotation.Nullable;
 
@@ -16,6 +16,7 @@ public class CustomView extends View {
 
     private int lastx;
     private int lasty;
+    private Scroller scroller;
 
     public CustomView(Context context) {
         super(context);
@@ -23,6 +24,7 @@ public class CustomView extends View {
 
     public CustomView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        scroller = new Scroller(context);
     }
 
     public CustomView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -52,16 +54,34 @@ public class CustomView extends View {
                 //1、第一种
                 //    layout(getLeft()+offerx,getTop()+offery,getRight()+offerx,getBottom()+offery);
                 //2、第二种，也可以调取下面方法刷新位置
-//                offsetLeftAndRight(offerx);
-//                offsetTopAndBottom(offery);
+                offsetLeftAndRight(offerx);
+                offsetTopAndBottom(offery);
                 //3、第三种 使用LayoutParams改变控件位置
                 //      FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) getLayoutParams();
-                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-                layoutParams.leftMargin = getLeft() + offerx;
-                layoutParams.topMargin = getTop() + offery;
-                setLayoutParams(layoutParams);
+//                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
+//                layoutParams.leftMargin = getLeft() + offerx;
+//                layoutParams.topMargin = getTop() + offery;
+//                setLayoutParams(layoutParams);
                 break;
         }
         return true;
+    }
+
+    //系统会在绘制View的时候在draw（）方法中调用该方法
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+        if (scroller.computeScrollOffset()){
+            ((View)getParent()).scrollTo(scroller.getCurrX(),scroller.getCurrY());
+            invalidate();
+        }
+    }
+
+    public void smoothScrollTo(int destx,int desty){
+        int scrollx = getScrollX();
+        int deltax =destx -  scrollx;
+        int scrolly = getScrollY();
+        int deltay =desty -  scrolly;
+        scroller.startScroll(scrollx,scrolly,deltax,deltay,2000);
     }
 }

@@ -6,6 +6,7 @@
 
 <!--    通过改变控件属性移动-->
     <com.xiaobin.androidview.weigth.CustomView
+        android:id="@+id/customView"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@android:color/holo_blue_bright"
@@ -19,5 +20,5 @@
         android:layout_height="80dp"
         android:background="@android:color/holo_orange_dark"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="100dp"/>
+        android:layout_gravity="bottom"/>
 </FrameLayout>
