@@ -36,8 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         recyclerViewAdapter?.setOnClickListener {
             OnClickFun { view, position ->
-                val intent = Intent(this@MainActivity, RecyclerViewActivity::class.java)
-                startActivity(intent)
+                when(position){
+                   0 -> startActivity(Intent(this@MainActivity, RecyclerViewActivity::class.java))
+                   1 -> startActivity(Intent(this@MainActivity, ViewActivity::class.java))
+                }
             }
 
             OnLongClickFun { view, position ->
@@ -48,5 +50,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initData() {
         data.add("RecyclerView")
+        data.add("View Event")
     }
 }

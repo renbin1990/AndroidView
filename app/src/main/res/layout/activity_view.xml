@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    通过改变控件属性移动-->
+    <com.xiaobin.androidview.weigth.CustomView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+<!--  使用动画移动  -->
+    <View
+        android:id="@+id/view_translate"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/holo_orange_dark"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"/>
+</FrameLayout>
