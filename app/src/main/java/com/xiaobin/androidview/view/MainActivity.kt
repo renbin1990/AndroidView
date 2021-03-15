@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 when(position){
                    0 -> startActivity(Intent(this@MainActivity, RecyclerViewActivity::class.java))
                    1 -> startActivity(Intent(this@MainActivity, ViewActivity::class.java))
-                   1 -> startActivity(Intent(this@MainActivity, AnimatorActivity::class.java))
+                   2 -> startActivity(Intent(this@MainActivity, AnimatorActivity::class.java))
                 }
             }
 

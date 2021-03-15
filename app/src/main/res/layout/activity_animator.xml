@@ -3,4 +3,62 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/tv_animator"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="40dp"
+        android:text="动画1"
+        android:gravity="center"
+        android:background="@android:color/holo_orange_dark"/>
+
+    <TextView
+        android:id="@+id/tv_animator1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="40dp"
+        android:text="ValueAnimator"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:background="@android:color/holo_orange_dark"/>
+
+    <Button
+        android:id="@+id/btn_animator"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="40dp"
+        android:text="按钮动画"
+        android:layout_gravity="left|center_vertical"
+        android:gravity="center"
+        android:background="@android:color/holo_green_light"/>
+
+    <TextView
+        android:id="@+id/tv_animator4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="40dp"
+        android:text="XML动画"
+        android:gravity="center"
+        android:layout_gravity="right|center_vertical"
+        android:background="@android:color/holo_orange_dark"/>
+
+    <TextView
+        android:id="@+id/tv_animator2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="40dp"
+        android:text="AnimatorSet"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:background="@android:color/holo_orange_dark"/>
+
+    <TextView
+        android:id="@+id/tv_animator3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="40dp"
+        android:text="PropertyValuesHolder"
+        android:gravity="center"
+        android:layout_gravity="bottom|right"
+        android:background="@android:color/holo_orange_dark"/>
 </FrameLayout>
