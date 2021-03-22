@@ -28,19 +28,12 @@ class AnimatorActivity : AppCompatActivity() {
         //透明动画
         var objectAnimator = ObjectAnimator.ofFloat(tv_animator,"alpha",1f,0f,1f)
         objectAnimator.duration = 2000
-
+        objectAnimator.start()
 
         //平移动画-X
         var objectAnimator1 = ObjectAnimator.ofFloat(tv_animator,"translationX",200f)
         objectAnimator1.duration = 2000
         objectAnimator1.start()
-
-        //需要注意的是，在使用ObjectAnimator的时候，要操作的属性必须要有get和set方法，不然 ObjectAnimator
-        // 就无法生效。如果一个属性没有get、set方法，也可以通过自定义一个属性类或包装类来间 接地给这个属性增加get和set方法。
-        // 现在来看看如何通过包装类的方法给一个属性增加get和set方法
-        var objectAnimator2 = ObjectAnimator.ofFloat(btn_animator,"translationY",200f)
-        objectAnimator2.duration = 2000
-        objectAnimator2.start()
 
         //ValueAnimator
         var valueAnimator = ValueAnimator.ofFloat(0f,100f)
@@ -53,24 +46,33 @@ class AnimatorActivity : AppCompatActivity() {
         }
 
         //3.动画的监听
-        objectAnimator.addListener {
-            it.doOnEnd {
-                Log.e("---->" ,"动画结束1")
+        //需要注意的是，在使用ObjectAnimator的时候，要操作的属性必须要有get和set方法，不然 ObjectAnimator
+        // 就无法生效。如果一个属性没有get、set方法，也可以通过自定义一个属性类或包装类来间 接地给这个属性增加get和set方法。
+        // 现在来看看如何通过包装类的方法给一个属性增加get和set方法
+        var objectAnimator2 = ObjectAnimator.ofFloat(btn_animator,"translationY",200f)
+        objectAnimator2.duration = 2000
+        objectAnimator2.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animation: Animator) {
+                Log.e("---->","动画执行开始")
             }
 
-            it.doOnStart {
-                Log.e("---->" ,"动画开始")
+            override fun onAnimationEnd(animation: Animator) {
+                /**
+                 * 大部分情况下，我们都要监听的是这个，在动画结束后，执行什么操作
+                 * 这里，我们只弹出一个Toast。
+                 */
+                Log.e("---->","动画执行结束")
             }
 
-            it.doOnCancel {
-                Log.e("---->" ,"动画结束2")
+            override fun onAnimationCancel(animation: Animator) {
+                Log.e("---->","动画执行取消")
             }
 
-            it.doOnRepeat {
+            override fun onAnimationRepeat(animation: Animator) {
 
             }
-        }
-        objectAnimator.start()
+        })
+        objectAnimator2.start()
 
         //组合动画——AnimatorSet
         //Builder 类采用了建造者模式，每次调用方法时都返回  Builder 自身用于继续构建。 AnimatorSet.Builder中包括以下4个方法。
