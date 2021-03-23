@@ -5,8 +5,10 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.toolbox.Volley.newRequestQueue
 import com.xiaobin.androidview.R
 import com.xiaobin.androidview.weigth.TitleBar
+import com.xiaobin.androidview.weigth.VolleyNetUtils
 import kotlinx.android.synthetic.main.activity_view.*
 
 /**
@@ -37,7 +39,12 @@ class ViewActivity : AppCompatActivity() {
         }
 
         //4 自定义viewGroup
+        //继承viewgroup,实现一些类似于viewpager的控件
 
+
+        invalTextView.setOnClickListener {
+            VolleyNetUtils.newRequestQueue("https://www.baidu.com",this)
+        }
     }
 
     private fun initView() {

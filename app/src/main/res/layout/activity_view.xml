@@ -23,6 +23,7 @@
         android:layout_marginTop="60dp"/>
 
     <com.xiaobin.androidview.weigth.InvalTextView
+        android:id="@+id/invalTextView"
         android:layout_width="120dp"
         android:layout_height="80dp"
         android:layout_gravity="center_vertical"
