@@ -10,4 +10,9 @@
         <attr name="underline_bg" format="color"/>
         <attr name="title_text" format="string"/>
     </declare-styleable>
+
+    <declare-styleable name="TagTextView">
+        <attr name="TagTextView_bg" format="reference"/>
+        <attr name="Tag_textcolor" format="color"/>
+    </declare-styleable>
 </resources>

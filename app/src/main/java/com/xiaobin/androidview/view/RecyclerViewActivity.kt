@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.xiaobin.androidview.R
 import com.xiaobin.androidview.adapter.RecyclerViewAdapter
+import com.xiaobin.androidview.base.BaseActivity
 import com.xiaobin.androidview.bean.Fruit
 import kotlinx.android.synthetic.main.activity_recyclier.*
 
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_recyclier.*
  *Time:20210311
  *Author:renbin
  */
-class RecyclerViewActivity : AppCompatActivity() {
+class RecyclerViewActivity : BaseActivity() {
     var data = ArrayList<Fruit>()
 
     override fun onCreate(savedInstanceState: Bundle?) {

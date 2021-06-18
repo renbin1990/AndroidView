@@ -6,13 +6,14 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.*
 import com.xiaobin.androidview.R
+import com.xiaobin.androidview.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_animator.*
 
 /**
  *Time:
  *Author:renbin
  */
-class AnimatorActivity : AppCompatActivity() {
+class AnimatorActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

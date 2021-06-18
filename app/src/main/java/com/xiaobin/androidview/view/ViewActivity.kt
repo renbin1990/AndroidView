@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.toolbox.Volley.newRequestQueue
 import com.xiaobin.androidview.R
+import com.xiaobin.androidview.base.BaseActivity
+import com.xiaobin.androidview.manager.ActivityCollector
 import com.xiaobin.androidview.weigth.TitleBar
 import com.xiaobin.androidview.weigth.VolleyNetUtils
 import kotlinx.android.synthetic.main.activity_view.*
@@ -15,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_view.*
  *Time:
  *Author:renbin
  */
-class ViewActivity : AppCompatActivity() {
+class ViewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +39,19 @@ class ViewActivity : AppCompatActivity() {
 
         title.setRightListener{
             Toast.makeText(this,"点击右侧按钮",Toast.LENGTH_LONG).show()
+            AlertDialog.Builder(this).apply {
+                setTitle("提示")
+                setMessage("是否退出?")
+                setCancelable(false)
+                setPositiveButton("OK"){dialog, which ->
+                    ActivityCollector.finishAll()
+                    android.os.Process.killProcess(android.os.Process.myPid())
+                }
+                setNegativeButton("取消"){dialog, which ->
+                    dialog.dismiss()
+                }
+                show()
+            }
         }
 
         //4 自定义viewGroup
